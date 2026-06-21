@@ -24,6 +24,15 @@ struct AuthCoordinator: View {
     }
 }
 
-#Preview {
-    AuthCoordinator()
+enum AuthRoute: Hashable {
+    case forgotPassword
+}
+
+@Observable
+final class AuthRouter {
+    var path = NavigationPath()
+    
+    func push(to route: AuthRoute) {
+        path.append(route)
+    }
 }

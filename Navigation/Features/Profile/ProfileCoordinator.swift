@@ -25,6 +25,15 @@ struct ProfileCoordinator: View {
 }
 
 
-#Preview {
-    ProfileCoordinator()
+enum ProfileRoute: Hashable {
+    case settings
+}
+
+@Observable
+final class ProfileRouter {
+    var path = NavigationPath()
+    
+    func push(to route: ProfileRoute) {
+        path.append(route)
+    }
 }
